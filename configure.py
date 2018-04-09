@@ -47,6 +47,10 @@ Run these commands:
     python manage.py set_auth_provider facebook {{facebook.client_id}} {{facebook.secret}}{% endif %}
     {% if google %}# Google
     python manage.py set_auth_provider google {{google.client_id}} {{google.secret}}{% endif %}
+    {% if github %}# GitHub
+    python manage.py set_auth_provider github {{github.client_id}} {{github.secret}}{% endif %}
+    {% if vk %}# VK
+    python manage.py set_auth_provider vk {{vk.client_id}} {{vk.secret}}{% endif %}
 
 If you have other providers you can add them in that way.
 """)
@@ -93,10 +97,19 @@ def ask_facebook():
     client_id = ask_text("Facebook App ID (not client token)")
     return dict(secret=secret, client_id=client_id)
 
-
 def ask_google():
     secret = ask_text("Google Secret")
     client_id = ask_text("Google Client ID")
+    return dict(secret=secret, client_id=client_id)
+
+def ask_github():
+    secret = ask_text("GitHub Secret")
+    client_id = ask_text("GitHub Client ID")
+    return dict(secret=secret, client_id=client_id)
+
+def ask_vk():
+    secret = ask_text("VK Secret")
+    client_id = ask_text("VK Client ID")
     return dict(secret=secret, client_id=client_id)
 
 
@@ -117,6 +130,16 @@ if __name__ == "__main__":
                   "You'll need the app secret and client."):
         context['google'] = ask_google()
 
+    heading("GitHub")
+    if ask_yes_no("Do you want to configure auth via GitHub?\n"
+                  "You'll need the app secret and client."):
+        context['github'] = ask_github()
+    
+    heading("VK")
+    if ask_yes_no("Do you want to configure auth via VK?\n"
+                  "You'll need the app secret and client."):
+        context['vk'] = ask_vk()
+    
     heading("Rendering settings...")
     with open('allauthdemo/settings.py', 'w') as out:
         out.write(settings_template.render(context, request=None))

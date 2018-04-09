@@ -19,8 +19,7 @@
   {% endif %}
 
   <div class="{% if socialaccount_providers %}col-md-7 col-lg-7 {% else %} col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 {% endif %}">
-
-    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <p>{% blocktrans %}<a href="{{ login_url }}">или войти</a>.{% endblocktrans %}</p>
         
     <form id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}

@@ -1,9 +1,12 @@
-# demo-allauth-bootstrap
+# demo-allauth-bootstrap-ru
+
+
 
 Simple, out-of-the-box Django website with a visitor (no login) area and
 a user (login required) area, where registration and login can be via providers
-like Google and Facebook.
+like Google, VK, GitHub and Facebook.
 
+(Как получить API для VK и GitHub? -гуглить!)
 
 ## tl;dr
 

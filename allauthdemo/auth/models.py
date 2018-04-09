@@ -191,7 +191,18 @@ def set_initial_user_names(request, user, sociallogin=None, **kwargs):
             user.last_name = sociallogin.account.extra_data['family_name']
             # verified = sociallogin.account.extra_data['verified_email']
             picture_url = sociallogin.account.extra_data['picture']
+        
+        if sociallogin.account.provider == 'vk':
+            user.first_name = sociallogin.account.extra_data['first_name']
+            user.last_name = sociallogin.account.extra_data['last_name']
+            # verified = sociallogin.account.extra_data['verified_email']
+            picture_url = sociallogin.account.extra_data['photo']
 
+        if sociallogin.account.provider == 'github':
+            user.first_name = sociallogin.account.extra_data['first_name']
+            user.last_name = sociallogin.account.extra_data['last_name']
+            # verified = sociallogin.account.extra_data['verified_email']
+            picture_url = sociallogin.account.extra_data['photo']
     profile = UserProfile(user=user, avatar_url=picture_url)
     profile.save()
 

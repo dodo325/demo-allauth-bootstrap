@@ -41,15 +41,24 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-{% if facebook or google %}
+{% if facebook or google or vk or github %}
 {% if facebook %}
     'allauth.socialaccount.providers.facebook',  # enabled by configure
 {% endif %}
+
 {% if google %}
     'allauth.socialaccount.providers.google',  # enabled by configure
 {% endif %}
+
+{% if vk %}
+    'allauth.socialaccount.providers.vk',  # enabled by configure
+{% endif %}
+
+{% if github %}
+    'allauth.socialaccount.providers.github',  # enabled by configure
+{% endif %}
+
     #'allauth.socialaccount.providers.dropbox',
-    #'allauth.socialaccount.providers.github',
     #'allauth.socialaccount.providers.linkedin',
     # etc
 {% endif %}
@@ -86,9 +95,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -172,6 +181,14 @@ SOCIALACCOUNT_PROVIDERS = {
     'google':
         { 'SCOPE': ['profile', 'email'],
         'AUTH_PARAMS': { 'access_type': 'online' }
+    },
+    'vk': {
+        'SCOPE': ['email'],
+        'METHOD': 'oauth2'
+    },
+    'github': {
+        'SCOPE': ['email'],
+        'METHOD': 'oauth2'
     },
 }
 
