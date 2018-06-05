@@ -18,7 +18,7 @@ BASE_DIR = dirname(dirname(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '{{ secret_key }}'
+SECRET_KEY = 'w02b53+8!xwz7jwg4jlod2l09vxb*@x#%!t5#)30jpb4+o$9r4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,33 +36,26 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-   
     'bootstrap4', # optional module for making bootstrap forms easier
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-{% if facebook or google or vk or github %}
-{% if facebook %}
-    'allauth.socialaccount.providers.facebook',  # enabled by configure
-{% endif %}
 
-{% if google %}
-    'allauth.socialaccount.providers.google',  # enabled by configure
-{% endif %}
 
-{% if vk %}
-    'allauth.socialaccount.providers.vk',  # enabled by configure
-{% endif %}
 
-{% if github %}
+
+
+
+
+
     'allauth.socialaccount.providers.github',  # enabled by configure
-{% endif %}
+
 
     #'allauth.socialaccount.providers.dropbox',
     #'allauth.socialaccount.providers.linkedin',
     # etc
-{% endif %}
+
 
     'allauthdemo.auth',
     'allauthdemo.demo',

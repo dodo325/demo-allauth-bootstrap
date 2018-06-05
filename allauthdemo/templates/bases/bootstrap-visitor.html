@@ -2,28 +2,44 @@
 {% load staticfiles %}
 
 {% block nav %}
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-static-top navbar-shadow" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Django-All-Auth Demo</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'landing_index' %}">Welcome</a></li>
-            <li><a href="{% url 'landing_about' %}">About</a></li>
-            <li><a href="{% url 'account_signup' %}"><strong>Join</strong></a></li>
-            <li><a href="{% url 'account_login' %}"><strong>Log In</strong></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Demo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+     
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'landing_index' %}">Welcome</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'account_login' %}"><strong>Log In</strong></a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_about' %}">About</a>
+            </li>
+        </ul>
+       
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- crutch -->
+      <a class="navbar-brand" href="#"> 0 </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <h2> </h2>
 {% endblock %}
 

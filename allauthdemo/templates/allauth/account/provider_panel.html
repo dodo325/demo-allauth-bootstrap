@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 {% load account socialaccount %}
 
 {% get_providers as socialaccount_providers %}
@@ -9,9 +9,16 @@
   Leaving here for reference.
 
   <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+
+
+  <div class="text-center social-btn">
+            <a href="#" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+            <a href="#" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
+			<a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+        </div>
   -->
 
-  <div class="socialaccount_ballot">
+  <div class="socialaccount_ballot text-center social-btn">
     <ul class="socialaccount_providers list-unstyled">
       {% include "socialaccount/snippets/provider_list.html" with process="login" %}
     </ul>
@@ -20,3 +27,16 @@
 
   {% include "socialaccount/snippets/login_extra.html" %}
 {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,37 +1,37 @@
 {% extends "bases/bootstrap-auth.html" %}
 
 {% load i18n %}
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}BS{% endblock %}
 
 {% block inner-content %}
 {% get_providers as socialaccount_providers %}
+<div class="login-form">
+    <form class="login" method="POST" action="{% url 'account_login' %}"> 
+        <h2 class="text-center">{% trans "Sign in" %}</h2>		
+        {% if socialaccount_providers  %}
+        {% include "allauth/account/provider_panel.html" with process="login" %}   
+        <div class="or-seperator"><i>{% trans "or" %}</i></div>
+    {% endif %}
+    <div class="form-group">
+    <div class="input-group">
 
-<h1>{% trans "Sign Up" %}</h1>
-    
-<div class="row">
-  {% if socialaccount_providers  %}
-  <div class="col-md-5 col-lg-5">
-    {% include "allauth/account/provider_panel.html" with process="login" %}
-  </div>
-  {% endif %}
-
-  <div class="{% if socialaccount_providers %}col-md-7 col-lg-7 {% else %} col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 {% endif %}">
-    <p>{% blocktrans %}<a href="{{ login_url }}">или войти</a>.{% endblocktrans %}</p>
-        
-    <form id="signup_form" method="post" action="{% url 'account_signup' %}">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <div class="form-actions">
-        <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
-      </div>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+            </div>
+        </div>  
+            
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block login-btn">{% trans "Registration" %}</button>
+        </div>
+        <div class="hint-text small">{% trans 'Уже есть аккаунт?' %} <a href="{% url 'account_login' %}" class="text-success">{% trans 'Logit Now!' %}</a></div>
     </form>
-  </div>
-</div>
+    
+</div>   
 {% endblock %}
 
