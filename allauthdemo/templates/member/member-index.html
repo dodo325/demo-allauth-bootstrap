@@ -1,8 +1,8 @@
 {% extends "bases/bootstrap-navbar.html" %}
 
 {% load bootstrap4 %}
-
-{% block head_title %}Welcome{% endblock %}
+{% load i18n %}
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -11,7 +11,6 @@
     
 
   
-
     <div class="col-sm-6 col-md-4 col-lg-4">
       <h3>Picture</h3>
       <p class="picture-frame">
@@ -20,7 +19,7 @@
       </p>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-4">
-      <h3>Profile</h3>
+      <h3>{% trans "Profile" %}</h3>
       <ul class="list-unstyled">
         <li>First name: <strong>{{user.first_name}}</strong></li>
         <li>Last name: <strong>{{user.last_name}}</strong></li>

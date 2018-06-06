@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="container">
-<h1>Profile</h1>
+<h1>{% trans 'Profile' %}</h1>
   {# Hmm. Not thrilled about this. #}
   {# Could use django-bootstrap4 which removes some of this ugliness. #}
   {# Or some AJAX-based way to retrieve messages. #}
@@ -21,17 +21,10 @@
     {% bootstrap_form form %}
     {% buttons %}
     <button type="submit" class="btn btn-primary">
-      Submit
+      {% trans 'Submit' %}
     </button>
     {% endbuttons %}
 
-<!--
-    <div class="form-group">
-      <div class="col-sm-12">
-        <button type="submit" class="btn btn-primary pull-right"> Submit </button>
-      </div>
-    </div>
--->
   </form>
 </div>
 
