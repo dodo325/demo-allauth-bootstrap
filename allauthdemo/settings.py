@@ -48,7 +48,7 @@ INSTALLED_APPS = (
 
 
 
-
+'allauth.socialaccount.providers.vk',
     'allauth.socialaccount.providers.github',  # enabled by configure
 
 
