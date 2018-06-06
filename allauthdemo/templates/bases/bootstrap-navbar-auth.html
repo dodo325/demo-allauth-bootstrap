@@ -1,10 +1,5 @@
-{% extends "bases/bootstrap-jquery.html" %}
-{% load staticfiles %}
-
-{% block nav %}
-
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Demo</a>
+    <a class="navbar-brand" href="/">Demo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,7 +13,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'user_action' %}">Action</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown"> <!--TODO: right position -->
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <strong> {{ user.display_name }}</strong> <b class="caret"></b>
           </a>
@@ -35,12 +30,3 @@
       </ul>
     </div>
   </nav>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- crutch -->
-    <a class="navbar-brand" href="#"> 0 </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-  <h2> </h2>
-{% endblock %}
-
